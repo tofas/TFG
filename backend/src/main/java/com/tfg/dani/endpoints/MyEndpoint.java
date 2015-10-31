@@ -16,7 +16,7 @@ import javax.inject.Named;
  * An endpoint class we are exposing
  */
 @Api(
-        name = "myApi",
+        name = "tfgApi",
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "endpoints.dani.tfg.com",
