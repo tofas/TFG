@@ -1,12 +1,12 @@
 package com.tfg.dani.tfg.core.services;
 
-import com.google.appengine.repackaged.org.codehaus.jackson.map.deser.DateDeserializer;
+/*import com.google.appengine.repackaged.org.codehaus.jackson.map.deser.DateDeserializer;
 import com.google.appengine.repackaged.org.codehaus.jackson.map.ser.std.DateSerializer;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.Expose;*/
 
 import java.util.Date;
 
@@ -22,7 +22,7 @@ public class ServiceBuilder {
     // Testing url on localhost
     private static final String BASE_URL = "localhost:8080";
 
-    private static GsonConverter gsonConverter =
+    /*private static GsonConverter gsonConverter =
             new GsonConverter(
                     new GsonBuilder()
                             .registerTypeAdapter(Date.class, new DateDeserializer())
@@ -52,12 +52,12 @@ public class ServiceBuilder {
                                 }
                             })
                             .create()
-            );
+            );*/
 
     public static <S> S createService(Class<S> serviceClass) {
 
-        return new RestAdapter.Builder()
-                .setConverter(gsonConverter).setLogLevel(RestAdapter.LogLevel.FULL)
+        return new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.FULL)
+                .setEndpoint(BASE_URL)
                 .build()
                 .create(serviceClass);
     }

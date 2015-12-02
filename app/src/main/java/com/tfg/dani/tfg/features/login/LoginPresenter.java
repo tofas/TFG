@@ -1,27 +1,41 @@
 package com.tfg.dani.tfg.features.login;
 
+import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.tfg.dani.tfg.base.BasePresenter;
 import com.tfg.dani.tfg.core.entities.User;
-import com.tfg.dani.tfg.core.interactors.UserInteractor;
+import com.tfg.dani.tfg.core.services.ServiceBuilder;
+import com.tfg.dani.tfg.core.services.restservices.UserService;
 
-import nucleus.presenter.RxPresenter;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
- * Created by dani on 31/10/15.
+ * Created by dani on 21/11/15.
  */
-public class LoginPresenter extends BasePresenter<LoginViewInterface> {
+public class LoginPresenter extends MvpBasePresenter<InterfaceLoginView> implements InterfaceLoginPresenter {
 
-    private UserInteractor mUserInteractor;
+    private static LoginPresenter mInstance;
+
+    private UserService mService;
 
     public static LoginPresenter getInstance() {
-        return new LoginPresenter();
+        mInstance = new LoginPresenter();
+        return mInstance;
     }
 
     public LoginPresenter() {
-        mUserInteractor = UserInteractor.getInstance();
+        mService = ServiceBuilder.createService(UserService.class);
     }
 
-    public void loginUser(String email, String authToken) {
+    @Override
+    public void loginUser(String email, String token) {
+        mService.login(email, token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(user -> onUserReceived(user));
+    }
 
+    public void onUserReceived(User user) {
+        getView().onUserReceived(user);
     }
 }
