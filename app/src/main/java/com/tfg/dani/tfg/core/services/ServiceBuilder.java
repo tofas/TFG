@@ -20,7 +20,7 @@ import retrofit.converter.GsonConverter;
 public class ServiceBuilder {
 
     // Testing url on localhost
-    private static final String BASE_URL = "localhost:8080";
+    private static final String BASE_URL = "https://tfgendpoints.appspot.com/_ah/api";
 
     /*private static GsonConverter gsonConverter =
             new GsonConverter(

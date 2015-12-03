@@ -6,6 +6,10 @@ import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 /**
  * Created by dani on 31/10/15.
  */
-public class BasePresenter extends MvpBasePresenter<BaseView> {
+public class BasePresenter<S extends BaseViewInterface> extends MvpBasePresenter<S> implements BasePresenterInterface{
 
+    @Override
+    public void onError(String error) {
+
+    }
 }

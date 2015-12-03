@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.tfg.dani.tfg.R;
 import com.tfg.dani.tfg.base.BaseView;
 import com.tfg.dani.tfg.core.entities.User;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -30,26 +32,35 @@ public class LoginView extends BaseView implements InterfaceLoginView {
     }
 
     @Override
+    public MvpPresenter createPresenter() {
+        mPresenter = LoginPresenter.getInstance();
+        return mPresenter;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = LoginPresenter.getInstance();
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container);
-
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 
     @Override
     public void onUserReceived(User user) {
-        Log.v(TAG,user.getmEmail());
+        Log.v(TAG, user.getmEmail());
     }
 
     @OnClick(R.id.login_button)
     public void onLoginButtonClicked() {
+        Log.e(TAG, "mPresenter->loginUser");
         mPresenter.loginUser("dani@dani", "token");
     }
+
+
 }

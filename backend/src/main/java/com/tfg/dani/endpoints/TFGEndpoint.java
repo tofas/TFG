@@ -23,7 +23,7 @@ import javax.inject.Named;
         namespace = @ApiNamespace(
                 ownerDomain = "endpoints.dani.tfg.com",
                 ownerName = "endpoints.dani.tfg.com",
-                packagePath = ""
+                packagePath = "com.tfg.dani.endpoints"
         )
 )
 public class TFGEndpoint {
@@ -34,7 +34,7 @@ public class TFGEndpoint {
         mUsersPresenter = UsersPresenter.getInstance();
     }
 
-    @ApiMethod(name = "users.login", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "login", httpMethod = ApiMethod.HttpMethod.POST)
     public User login(@Named("email") String email, @Named("authToken") String authToken) {
         return mUsersPresenter.login(email, authToken);
     }
