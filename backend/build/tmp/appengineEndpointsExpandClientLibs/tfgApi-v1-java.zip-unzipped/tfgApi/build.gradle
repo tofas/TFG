@@ -3,7 +3,7 @@ apply plugin: 'maven'
 
 
 group = 'com.tfg.dani.endpoints'
-archivesBaseName = 'com-tfg-dani-endpoints-tfgapi'
+archivesBaseName = 'tfgApi'
 version = 'v1-1.21.0-SNAPSHOT'
 
 sourceCompatibility = 1.6

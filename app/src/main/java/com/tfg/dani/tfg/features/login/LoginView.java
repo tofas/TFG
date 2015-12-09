@@ -62,5 +62,4 @@ public class LoginView extends BaseView implements InterfaceLoginView {
         mPresenter.loginUser("dani@dani", "token");
     }
 
-
 }

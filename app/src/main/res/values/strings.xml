@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">TFG</string>
+
+    <!-- ENDPOINTS URL -->
+    <string name="BASE_URL">https://tfgendpoints.appspot.com/_ah/api</string>
+
+    <!-- SPLASH -->
     <string name="title_activity_splash">SplashActivity</string>
 
     <string name="hello_world">Hello world!</string>
