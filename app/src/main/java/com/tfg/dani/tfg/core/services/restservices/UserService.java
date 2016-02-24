@@ -5,7 +5,9 @@ import com.tfg.dani.tfg.core.entities.User;
 import retrofit.http.Body;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Path;
 import rx.Observable;
 
 /**
@@ -14,7 +16,6 @@ import rx.Observable;
 public interface UserService {
     // Request method and URL specified in the annotation
     // Callback for the parsed response is the last parameter
-    @FormUrlEncoded
-    @POST("/login")
-    Observable<User> login(@Field("email") String email, @Field("authToken") String authToken);
+    @GET("/login/{email}/{authToken}")
+    Observable<User> login(@Path("email") String email, @Path("authToken") String authToken);
 }
