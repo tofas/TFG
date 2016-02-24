@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.tfg.dani.tfg.R;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by dani on 31/10/15.
@@ -16,6 +18,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ButterKnife.bind(this);
 
         setContentView(R.layout.activity_base);
     }

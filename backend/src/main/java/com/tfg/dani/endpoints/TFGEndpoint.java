@@ -30,12 +30,9 @@ public class TFGEndpoint {
 
     private UsersPresenter mUsersPresenter;
 
-    public TFGEndpoint() {
-        mUsersPresenter = UsersPresenter.getInstance();
-    }
-
-    @ApiMethod(name = "users.login", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "login", httpMethod = "post")
     public User login(@Named("email") String email, @Named("authToken") String authToken) {
+        mUsersPresenter = UsersPresenter.getInstance();
         return mUsersPresenter.login(email, authToken);
     }
 
