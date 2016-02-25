@@ -1,8 +1,14 @@
+import com.google.common.reflect.Types
+
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.github.triplet.play'
 
 def supportVersion = "23.0.1"
+
+def keystorePropertiesFile = file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 23
@@ -15,10 +21,35 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    productFlavors {
+        alpha {
+            applicationId "com.tfg.dani.tfg.alpha"
+        }
+
+        beta {
+            applicationId "com.tfg.dani.tfg.beta"
+        }
+
+        production {
+
         }
     }
 
