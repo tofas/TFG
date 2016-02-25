@@ -9,6 +9,10 @@ apply plugin: 'com.github.triplet.play'
 
 def supportVersion = "23.0.1"
 
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+
 def keystorePropertiesFile = file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
@@ -21,8 +25,8 @@ android {
         applicationId "com.tfg.dani.tfg"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
 
     signingConfigs {
