@@ -83,6 +83,6 @@ dependencies {
 
 play {
     jsonFile = file('keys.json')
-    serviceAccountEmail = "1031744611760-compute@developer.gserviceaccount.com"
+    serviceAccountEmail = "tfg-65@api-5010132945513051672-806562.iam.gserviceaccount.com"
     track = "${track}"
 }
