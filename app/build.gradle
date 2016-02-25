@@ -41,11 +41,9 @@ android {
 
     productFlavors {
         alpha {
-            applicationId "com.tfg.dani.tfg.alpha"
         }
 
         beta {
-            applicationId "com.tfg.dani.tfg.beta"
         }
 
         production {
