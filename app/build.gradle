@@ -1,5 +1,8 @@
 import com.google.common.reflect.Types
 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.github.triplet.play'
@@ -79,6 +82,7 @@ dependencies {
 }
 
 play {
-    jsonFile = file('keys.json')
+    pk12File = file('google-play-credentials.p12')
+    serviceAccountEmail = "1031744611760-compute@developer.gserviceaccount.com"
     track = "${track}"
 }
