@@ -82,7 +82,7 @@ dependencies {
 }
 
 play {
-    pk12File = file('google-play-credentials.p12')
+    jsonFile = file('keys.json')
     serviceAccountEmail = "1031744611760-compute@developer.gserviceaccount.com"
     track = "${track}"
 }
