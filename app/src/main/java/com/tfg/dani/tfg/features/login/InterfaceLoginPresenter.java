@@ -1,5 +1,7 @@
 package com.tfg.dani.tfg.features.login;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import com.tfg.dani.tfg.base.BasePresenterInterface;
 
 import android.content.Intent;
@@ -12,4 +14,6 @@ public interface InterfaceLoginPresenter extends BasePresenterInterface {
     void handleGoogleSignInResult(Intent data);
 
     void signInWithGoogle();
+
+    GoogleSignInOptions getGoogleSignInOptions();
 }

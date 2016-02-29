@@ -1,5 +1,7 @@
 package com.tfg.dani.tfg.features.login;
 
+import com.google.android.gms.common.SignInButton;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +15,7 @@ import com.tfg.dani.tfg.R;
 import com.tfg.dani.tfg.base.BaseView;
 import com.tfg.dani.tfg.core.entities.User;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -22,6 +25,9 @@ import butterknife.OnClick;
 public class LoginView extends BaseView implements InterfaceLoginView {
 
     private static final String TAG = "LoginView";
+
+    @Bind(R.id.sign_in_button)
+    SignInButton mSignInButton;
 
     private LoginPresenter mPresenter;
 
@@ -47,7 +53,21 @@ public class LoginView extends BaseView implements InterfaceLoginView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         ButterKnife.bind(this, view);
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mSignInButton.setSize(SignInButton.SIZE_WIDE);
+        mSignInButton.setScopes(mPresenter.getGoogleSignInOptions().getScopeArray());
     }
 
     @Override

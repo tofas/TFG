@@ -4,7 +4,9 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -18,6 +20,7 @@ public class GoogleSignInUtils {
     private static GoogleSignInUtils mInstance;
     private static GoogleApiClient.OnConnectionFailedListener mListener;
     private GoogleApiClient mGoogleApiClient;
+    private GoogleSignInOptions mGoogleSignInOptions;
 
     private FragmentActivity mContext;
 
@@ -39,7 +42,8 @@ public class GoogleSignInUtils {
     private void setUpGoogleSignIn() {
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        mGoogleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestScopes(new Scope(Scopes.PLUS_LOGIN))
                 .requestEmail()
                 .build();
 
@@ -47,7 +51,7 @@ public class GoogleSignInUtils {
         // options specified by gso.
         mGoogleApiClient = new GoogleApiClient.Builder(mContext)
                 .enableAutoManage(mContext, mListener)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, mGoogleSignInOptions)
                 .build();
     }
 
@@ -62,5 +66,9 @@ public class GoogleSignInUtils {
         } else {
             return null;
         }
+    }
+
+    public GoogleSignInOptions getGoogleSignInOptions() {
+        return mGoogleSignInOptions;
     }
 }

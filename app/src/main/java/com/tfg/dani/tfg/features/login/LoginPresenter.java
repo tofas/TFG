@@ -6,6 +6,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
 
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.tfg.dani.tfg.base.BasePresenter;
@@ -75,5 +76,10 @@ public class LoginPresenter extends BasePresenter<LoginView> implements Interfac
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         //TODO: mostrar error de conexión con google
+    }
+
+    @Override
+    public GoogleSignInOptions getGoogleSignInOptions() {
+        return mGoogleSignInUtils.getGoogleSignInOptions();
     }
 }
