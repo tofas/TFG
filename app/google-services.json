@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_id": "loyal-manifest-699",
+    "project_number": "713791333003",
+    "name": "Prueba"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713791333003:android:8aec728cb3c75d40",
+        "client_id": "android:com.tfg.dani.tfg",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.tfg.dani.tfg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713791333003-hu1dia9se52spjo4k828fej1sbqv8fa9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tfg.dani.tfg",
+            "certificate_hash": "A0C55405AA4E9850D439EB39C313B932D8B673F1"
+          }
+        },
+        {
+          "client_id": "713791333003-j6ltp1vcjcoa6rhu6vt9bqmpg02rlctb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

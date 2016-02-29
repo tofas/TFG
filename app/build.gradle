@@ -1,11 +1,7 @@
-import com.google.common.reflect.Types
-
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.github.triplet.play'
+apply plugin: 'com.google.gms.google-services'
 
 def supportVersion = "23.0.1"
 
@@ -67,6 +63,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(path: ':backend', configuration: 'android-endpoints')
+    compile 'com.google.android.gms:play-services-auth:8.3.0'
     //MVP: http://hannesdorfmann.com/mosby/
     compile 'com.hannesdorfmann.mosby:mvp:2.0.0'
     compile 'com.hannesdorfmann.mosby:viewstate:2.0.0'
@@ -86,7 +83,7 @@ dependencies {
 }
 
 play {
-    jsonFile = file('keys.json')
+    jsonFile = file('google-play-publish-keys.json')
     serviceAccountEmail = "tfg-65@api-5010132945513051672-806562.iam.gserviceaccount.com"
     track = "${track}"
 }

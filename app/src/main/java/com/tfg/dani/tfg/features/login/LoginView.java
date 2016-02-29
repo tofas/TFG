@@ -1,19 +1,18 @@
 package com.tfg.dani.tfg.features.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.tfg.dani.tfg.R;
 import com.tfg.dani.tfg.base.BaseView;
 import com.tfg.dani.tfg.core.entities.User;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -56,10 +55,18 @@ public class LoginView extends BaseView implements InterfaceLoginView {
         Log.v(TAG, user.getmEmail());
     }
 
-    @OnClick(R.id.login_button)
-    public void onLoginButtonClicked() {
-        Log.e(TAG, "mPresenter->loginUser");
-        mPresenter.loginUser("dani@dani", "token");
+    @OnClick(R.id.sign_in_button)
+    public void onGoogleSignInButtonClicked() {
+        mPresenter.signInWithGoogle();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == LoginPresenter.RC_SIGN_IN) {
+            mPresenter.handleGoogleSignInResult(data);
+        }
+    }
 }
