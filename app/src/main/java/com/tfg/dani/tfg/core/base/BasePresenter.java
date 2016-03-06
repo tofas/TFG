@@ -1,11 +1,4 @@
-package com.tfg.dani.tfg.base;
-
-import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
-
-import android.support.annotation.Nullable;
-
-import java.lang.ref.WeakReference;
+package com.tfg.dani.tfg.core.base;
 
 /**
  * Created by dani on 31/10/15.

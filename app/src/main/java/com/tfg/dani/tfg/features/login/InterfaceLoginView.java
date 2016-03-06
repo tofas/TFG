@@ -1,6 +1,6 @@
 package com.tfg.dani.tfg.features.login;
 
-import com.tfg.dani.tfg.base.BaseViewInterface;
+import com.tfg.dani.tfg.core.base.BaseViewInterface;
 import com.tfg.dani.tfg.core.entities.User;
 
 /**

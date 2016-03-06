@@ -1,4 +1,4 @@
-package com.tfg.dani.tfg.base;
+package com.tfg.dani.tfg.core.base;
 
 import android.content.Intent;
 import android.os.Bundle;

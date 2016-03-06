@@ -5,20 +5,14 @@ import com.google.android.gms.common.SignInButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.tfg.dani.tfg.R;
-import com.tfg.dani.tfg.base.BaseView;
-import com.tfg.dani.tfg.base.BaseViewInterface;
+import com.tfg.dani.tfg.core.base.BaseView;
 import com.tfg.dani.tfg.core.entities.User;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

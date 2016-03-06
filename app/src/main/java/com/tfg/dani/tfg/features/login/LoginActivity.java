@@ -3,7 +3,7 @@ package com.tfg.dani.tfg.features.login;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.tfg.dani.tfg.base.BaseActivity;
+import com.tfg.dani.tfg.core.base.BaseActivity;
 
 /**
  * Created by dani on 21/11/15.

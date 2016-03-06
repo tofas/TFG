@@ -6,9 +6,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import com.tfg.dani.tfg.R;
-import com.tfg.dani.tfg.base.BasePresenter;
-import com.tfg.dani.tfg.base.BaseView;
-import com.tfg.dani.tfg.base.BaseViewInterface;
+import com.tfg.dani.tfg.core.base.BasePresenter;
+import com.tfg.dani.tfg.core.base.BaseViewInterface;
 import com.tfg.dani.tfg.core.services.ServiceBuilder;
 import com.tfg.dani.tfg.core.services.restservices.UserService;
 import com.tfg.dani.tfg.features.utils.GoogleSignInUtils;
