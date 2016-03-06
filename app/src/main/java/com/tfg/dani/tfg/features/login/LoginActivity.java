@@ -1,5 +1,6 @@
 package com.tfg.dani.tfg.features.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.tfg.dani.tfg.base.BaseActivity;
@@ -14,5 +15,10 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         loadFragment(LoginView.newInstance());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

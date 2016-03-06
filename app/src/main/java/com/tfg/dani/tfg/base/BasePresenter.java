@@ -10,11 +10,19 @@ import java.lang.ref.WeakReference;
 /**
  * Created by dani on 31/10/15.
  */
-public class BasePresenter<S extends BaseViewInterface> extends MvpBasePresenter<S> implements BasePresenterInterface{
+public class BasePresenter<S extends BaseViewInterface>{
 
-    @Override
+    private S mBaseView;
+
     public void onError(String error) {
 
     }
 
+    public S getView() {
+        return mBaseView;
+    }
+
+    public void setView(S view) {
+        mBaseView = view;
+    }
 }

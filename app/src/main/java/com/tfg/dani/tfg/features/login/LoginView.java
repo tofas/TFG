@@ -5,6 +5,7 @@ import com.google.android.gms.common.SignInButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.tfg.dani.tfg.R;
 import com.tfg.dani.tfg.base.BaseView;
+import com.tfg.dani.tfg.base.BaseViewInterface;
 import com.tfg.dani.tfg.core.entities.User;
 
 import butterknife.Bind;
@@ -37,37 +39,26 @@ public class LoginView extends BaseView implements InterfaceLoginView {
     }
 
     @Override
-    public MvpPresenter createPresenter() {
-        mPresenter = LoginPresenter.getInstance();
-        return mPresenter;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mPresenter = LoginPresenter.getInstance(this);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-        ButterKnife.bind(this, view);
-
-        return view;
+    protected int getFragmentLayout() {
+        return R.layout.fragment_login;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mSignInButton.setSize(SignInButton.SIZE_WIDE);
+        mSignInButton.setScopes(mPresenter.getGoogleSignInOptions().getScopeArray());
     }
-
 
     @Override
     public void onStart() {
         super.onStart();
-        mSignInButton.setSize(SignInButton.SIZE_WIDE);
-        mSignInButton.setScopes(mPresenter.getGoogleSignInOptions().getScopeArray());
     }
 
     @Override
