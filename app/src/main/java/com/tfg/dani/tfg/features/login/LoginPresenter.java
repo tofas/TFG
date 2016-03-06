@@ -64,7 +64,6 @@ public class LoginPresenter extends BasePresenter<LoginView> implements
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        //TODO: mostrar error de conexión con google
         getView().showSnackbar(connectionResult.getErrorMessage(),
                 BaseViewInterface.TypeSnackbar.TYPE_ERROR);
     }
